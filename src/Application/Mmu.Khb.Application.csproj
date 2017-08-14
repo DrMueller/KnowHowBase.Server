@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+      <Features>IOperation</Features>
+      <CodeAnalysisRuleSet>..\..\.settings\CA_ProductionCode.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.0.0-beta2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Mmu.Khb.Common.csproj" />
+    <ProjectReference Include="..\Domain.Services\Mmu.Khb.Domain.Services.csproj" />
+    <ProjectReference Include="..\Domain\Mmu.Khb.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
