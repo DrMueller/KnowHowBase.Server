@@ -7,6 +7,4 @@
 
 # Server
 ## General
-* Add FxCop
-* Add StyleCop
 * Add MongoDB Access
