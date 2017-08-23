@@ -13,9 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".settings", ".settings", "{
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".docs", ".docs", "{6AEA5B9E-B325-4BB4-AAED-489496492881}"
-	ProjectSection(SolutionItems) = preProject
-		.docs\todos.md = .docs\todos.md
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mmu.Khb.Application", "src\Application\Mmu.Khb.Application.csproj", "{71E8A77A-231B-4918-99CE-7D31775FED9C}"
 EndProject

@@ -3,7 +3,7 @@
     // http://enterprisecraftsmanship.com/2014/11/08/domain-object-base-class/
     public abstract class Entity
     {
-        public virtual string Id { get; set; }
+        public virtual long Id { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -29,7 +29,7 @@
 
         public override int GetHashCode()
         {
-            return (GetType() + Id).GetHashCode();
+            return (GetType() + Id.ToString()).GetHashCode();
         }
 
         public static bool operator ==(Entity a, Entity b)
@@ -54,7 +54,7 @@
 
         private bool IsTransient()
         {
-            return string.IsNullOrEmpty(Id);
+            return Id == 0;
         }
     }
 }

@@ -26,7 +26,6 @@ namespace Mmu.Khb.WebService.Infrastructure.Initialization
                 });
 
             var result = container.GetInstance<IServiceProvider>();
-
             var provisioningService = result.GetService<IProvisioningService>();
             ProvisioningServiceSingleton.Initialize(provisioningService);
             return result;

@@ -1,5 +1,4 @@
-﻿
-namespace Mmu.Khb.Common.ApplicationSettings.Models
+﻿namespace Mmu.Khb.Common.ApplicationSettings.Models
 {
     public class AppSettings
     {

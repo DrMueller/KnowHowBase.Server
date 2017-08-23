@@ -23,7 +23,7 @@ namespace Mmu.Khb.Domain.Services.Data.Common.Repositories
             _filterFactory = filterFactory;
         }
 
-        public Task DeleteAsync(string id)
+        public Task DeleteAsync(long id)
         {
             var collection = _mongoDbAccess.GetDatabaseCollection<T>();
             return collection.DeleteOneAsync(x => x.Id == id);
@@ -45,7 +45,7 @@ namespace Mmu.Khb.Domain.Services.Data.Common.Repositories
             return result;
         }
 
-        public async Task<T> LoadByIdAsync(string id)
+        public async Task<T> LoadByIdAsync(long id)
         {
             var entries = await LoadByExpressionAsync(x => x.Id == id);
             var result = entries.SingleOrDefault();
@@ -55,11 +55,14 @@ namespace Mmu.Khb.Domain.Services.Data.Common.Repositories
         public async Task<T> SaveAsync(T aggregateRoot)
         {
             var collection = _mongoDbAccess.GetDatabaseCollection<T>();
-            if (string.IsNullOrWhiteSpace(aggregateRoot.Id))
+            var exists = await LoadByIdAsync(aggregateRoot.Id) != null;
+
+            if (aggregateRoot.Id == 0 || !exists)
             {
                 await collection.InsertOneAsync(aggregateRoot);
                 return aggregateRoot;
             }
+
 
             var filter = _filterFactory.CreateFilterDefinition(x => x.Id == aggregateRoot.Id);
             var updateOptions = new FindOneAndReplaceOptions<T> { IsUpsert = false, ReturnDocument = ReturnDocument.After };

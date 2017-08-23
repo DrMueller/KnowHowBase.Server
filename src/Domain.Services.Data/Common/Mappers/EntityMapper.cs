@@ -12,7 +12,7 @@ namespace Mmu.Khb.Domain.Services.Data.Common.Mappers
             BsonClassMap.RegisterClassMap<Entity>(
                 f =>
                 {
-                    f.MapIdMember(c => c.Id).SetIdGenerator(new StringObjectIdGenerator());
+                    f.MapIdMember(c => c.Id);
                 });
         }
     }
